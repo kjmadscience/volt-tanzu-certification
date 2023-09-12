@@ -1,0 +1,40 @@
+---
+cluster:
+  clusterSpec:
+    replicas: 3
+    additionalStartArgs:
+      - --ignore=thp
+    persistentVolume:
+      size: 10Gi
+  config:
+    licenseXMLFile: |
+      <license>
+      <permit version="3" scheme="0">
+         <type>Enterprise Edition</type>
+         <issuer>
+             <company>Volt Active Data</company>
+             <email>support@voltactivedata.com</email>
+             <url>https://voltactivedata.com/</url>
+         </issuer>
+         <licensee>VoltDB Internal Only - Kajal Jadeja - 1</licensee>
+         <features trial="false">
+             <wanreplication>true</wanreplication>
+             <dractiveactive>true</dractiveactive>
+         </features>
+         <note>VoltDB Internal Only - Kajal Jadeja - 1</note>
+      </permit>
+      <signature>
+      </signature>
+      </license>
+    deployment:
+      cluster:
+        kfactor: 1
+        sitesperhost: 4
+      commandlog:
+        enabled: "false"
+        synchronous: "false"
+        logsize: 3072
+        frequency:
+          time: 5000
+      snapshot:
+        enabled: "false"
